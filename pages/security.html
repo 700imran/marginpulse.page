@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="MarginPulse Pro security — RBI Account Aggregator, GSP/GSTN APIs, AES-256 encryption, read-only bank access. Your financial data protected at every layer."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://marginpulsepro.in/pages/security.html"/>
+  <title>Security & Trust — MarginPulse Pro</title>
+  <link rel="stylesheet" href="/css/global.css"/>
+  <link rel="stylesheet" href="/css/nav.css"/>
+  <link rel="stylesheet" href="/css/pages.css"/>
+</head>
+<body>
+<div id="nav-root"></div>
+<main>
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Security &amp; Trust</span>
+    <h1 class="h2">Your financial data deserves the same protection as your bank.</h1>
+    <p class="lead" style="max-width:600px;margin-top:14px;">MarginPulse Pro is built on India's own regulated financial data infrastructure. Here's exactly how we protect your data — no vague promises.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="security-grid">
+      <article class="card security-card">
+        <div class="security-icon" aria-hidden="true">🔒</div>
+        <div><h3>RBI Account Aggregator Framework</h3>
+        <p class="body-sm">Bank connections use India's regulatory AA framework — a consent-based, read-only mechanism approved by RBI. We never see your credentials. You authorize directly with your bank. Revoke access anytime from your bank app.</p></div>
+      </article>
+      <article class="card security-card">
+        <div class="security-icon" aria-hidden="true">🛡️</div>
+        <div><h3>Read-Only Access, Always</h3>
+        <p class="body-sm">MarginPulse Pro can read your transactions to reconcile them. It cannot initiate transfers, make payments, or take any action on your behalf — by design, not policy. This is a cryptographic constraint, not a setting.</p></div>
+      </article>
+      <article class="card security-card">
+        <div class="security-icon" aria-hidden="true">🔐</div>
+        <div><h3>AES-256 Encryption</h3>
+        <p class="body-sm">All data is encrypted in transit using TLS 1.3 and at rest using AES-256. Bank account numbers are field-encrypted in the database using Fernet symmetric encryption — never stored in plaintext, even internally.</p></div>
+      </article>
+      <article class="card security-card">
+        <div class="security-icon" aria-hidden="true">📋</div>
+        <div><h3>GSP/GSTN API Integration</h3>
+        <p class="body-sm">GST portal access is via the official Government-authorised GSP channel. We access exactly the data you authorise — GSTR-2A/2B filings — nothing else from the portal.</p></div>
+      </article>
+      <article class="card security-card">
+        <div class="security-icon" aria-hidden="true">🚫</div>
+        <div><h3>Zero Third-Party Data Sharing</h3>
+        <p class="body-sm">Your financial data is never sold, shared with advertisers, or used to train AI models. It is used exclusively to provide you with reconciliation outputs.</p></div>
+      </article>
+      <article class="card security-card">
+        <div class="security-icon" aria-hidden="true">✅</div>
+        <div><h3>Revoke Access Anytime</h3>
+        <p class="body-sm">Bank access revocable directly from your bank's mobile app. GST portal access revocable from portal settings. No need to contact us. Revocation is immediate.</p></div>
+      </article>
+      <article class="card security-card">
+        <div class="security-icon" aria-hidden="true">⚡</div>
+        <div><h3>Rate Limiting &amp; DoS Protection</h3>
+        <p class="body-sm">All API endpoints are rate-limited. Login is capped at 5 requests/minute per IP. Uploads have a 25MB hard limit enforced before files are read into memory. Constant-time password verification prevents timing attacks.</p></div>
+      </article>
+      <article class="card security-card">
+        <div class="security-icon" aria-hidden="true">📧</div>
+        <div><h3>Responsible Disclosure</h3>
+        <p class="body-sm">Found a security issue? Email <a href="mailto:security@marginpulsepro.in" style="color:var(--teal);">security@marginpulsepro.in</a>. We respond within 24 hours with a remediation timeline and will credit your disclosure publicly.</p></div>
+      </article>
+    </div>
+    <div style="max-width:700px;margin:48px auto 0;padding:28px;background:var(--teal-light);border:1px solid var(--teal-border);border-left:4px solid var(--teal);border-radius:var(--radius-lg);">
+      <h3 style="font-size:15px;font-weight:800;color:var(--slate);margin-bottom:10px;">Questions about our security posture?</h3>
+      <p class="body-sm" style="margin-bottom:16px;">We're happy to walk your security or legal team through our architecture, data flows, and regulatory compliance in a 30-minute call.</p>
+      <a href="/pages/contact.html" class="btn btn-dark btn-sm">Talk to Our Security Team</a>
+    </div>
+  </div>
+</section>
+</main>
+<div id="footer-root"></div>
+<script src="/js/components.js"></script><script src="/js/main.js"></script>
+</body>
+</html>
