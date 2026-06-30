@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="GSTR-2A vs GSTR-2B explained clearly — which one actually determines your Input Tax Credit eligibility, and why many finance teams still rely on the wrong one."/>
+<meta name="keywords" content="GSTR-2A vs GSTR-2B, ITC eligibility document, GSTR-2B explained, GST reconciliation document"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://marginpulsepro.in/blog/posts/gstr-2a-vs-2b.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="GSTR-2A vs GSTR-2B: Which Governs Your ITC in 2026?"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article",
+ "headline":"GSTR-2A vs GSTR-2B: Which One Actually Governs Your ITC Eligibility in 2026?",
+ "datePublished":"2026-06-05","dateModified":"2026-06-05",
+ "author":{"@type":"Organization","name":"MarginPulse Pro"},
+ "publisher":{"@type":"Organization","name":"MarginPulse Technologies Pvt Ltd"}}
+</script>
+<title>GSTR-2A vs GSTR-2B: Which Governs ITC in 2026? | MarginPulse Pro</title>
+<link rel="stylesheet" href="/css/global.css"/>
+<link rel="stylesheet" href="/css/nav.css"/>
+<link rel="stylesheet" href="/css/blog.css"/>
+</head>
+<body>
+<div id="nav-root"></div>
+<main>
+<article>
+<section class="article-hero">
+  <div class="container-sm">
+    <span class="badge badge-teal">GST Compliance</span>
+    <h1 class="h2" style="margin-top:14px;">GSTR-2A vs GSTR-2B: Which One Actually Governs Your ITC Eligibility in 2026?</h1>
+    <div class="article-meta-row body-sm"><span>June 5, 2026</span><span>·</span><span>10 min read</span><span>·</span><span>By MarginPulse Pro Team</span></div>
+  </div>
+</section>
+<div class="article-body">
+  <p>This question comes up constantly in finance team Slack channels and CA forums, and the confusion is understandable — both documents look similar, both list vendor invoices, and both have "GSTR-2" in the name. But for the purpose of claiming Input Tax Credit, only one of them matters, and treating the other as authoritative is a common, costly mistake.</p>
+
+  <h2>The short answer</h2>
+  <p><strong>GSTR-2B is the document that governs your ITC eligibility.</strong> It is a static, auto-generated statement, locked on a fixed date each month, and it is the one your GSTR-3B filing should be reconciled against. GSTR-2A is a dynamic, real-time-updating statement that's useful for visibility but is not the compliance reference point.</p>
+
+  <h2>What GSTR-2A actually is</h2>
+  <p>GSTR-2A is auto-populated continuously as your vendors file their GSTR-1 (or make amendments). Because it updates in real time, the GSTR-2A you view today may look different from the GSTR-2A you viewed yesterday — even for the same tax period — because a vendor filed late, amended an earlier invoice, or corrected an error.</p>
+  <p>This makes GSTR-2A excellent for monitoring trends and catching potential issues early, but unreliable as a fixed reference for a specific month's ITC claim, because the data underneath it keeps shifting.</p>
+
+  <h2>What GSTR-2B actually is</h2>
+  <p>GSTR-2B is generated once per month, typically on the 14th, and it's a snapshot — frozen as of that generation date — of all the invoices your vendors had filed up to that point. Once generated, that specific GSTR-2B does not change for that period. This stability is exactly why it was introduced: businesses needed one fixed, dependable document to reconcile against when filing GSTR-3B, instead of chasing a moving target.</p>
+
+  <h2>Why this distinction causes real financial mistakes</h2>
+  <p>The most common error finance teams make is checking GSTR-2A mid-month, seeing an invoice listed, and assuming the ITC is claimable — without realising that the vendor's filing happened after the relevant GSTR-2B cutoff, meaning the credit isn't actually eligible for that period's claim. The invoice may show up correctly in next month's GSTR-2B instead, which is fine, but only if your team is tracking that distinction rather than working off GSTR-2A as a proxy.</p>
+  <p>The opposite mistake also happens: a team sees an invoice missing from GSTR-2A early in the month and assumes it's lost, when the vendor simply hasn't filed yet and may still do so before the GSTR-2B cutoff.</p>
+
+  <h2>A practical workflow that avoids both mistakes</h2>
+  <ul>
+    <li><strong>Use GSTR-2A for early visibility</strong> — it's a useful early-warning signal that a vendor hasn't filed yet, well before the GSTR-2B cutoff arrives.</li>
+    <li><strong>Use GSTR-2B as your single source of truth</strong> for the actual ITC claim in your GSTR-3B filing — never reconcile your final claim against GSTR-2A.</li>
+    <li><strong>Track the gap between the two</strong> — if an invoice is consistently in GSTR-2A but never makes it into GSTR-2B by the cutoff, that's a vendor compliance pattern worth addressing directly.</li>
+  </ul>
+
+  <h2>Where real-time monitoring changes the equation</h2>
+  <p>The challenge with this two-document workflow is that it requires someone to actively check GSTR-2A throughout the month, not just glance at GSTR-2B once it's generated. In practice, most teams don't have the bandwidth to do this manually for every vendor, every month — so GSTR-2A's early-warning value goes largely unused, and problems are only discovered once GSTR-2B locks in.</p>
+  <p>A system that monitors vendor filing status continuously — effectively watching GSTR-2A's real-time updates automatically — can flag a non-filing vendor days before the GSTR-2B cutoff, while there's still time to follow up and get the invoice filed in time to make that period's claim.</p>
+
+  <div class="article-cta">
+    <h3>Stop manually checking GSTR-2A every week</h3>
+    <p class="body-sm" style="margin-bottom:16px;">MarginPulse Pro monitors vendor filing status live and alerts you before the GSTR-2B cutoff.</p>
+    <button class="btn btn-primary" onclick="window.location.href='https://marginpulse-02-frontend-web.vercel.app/'">Start Reconciling — ₹999 First Month</button>
+  </div>
+</div>
+<div class="related-posts">
+  <h3>Related Reading</h3>
+  <div class="grid-3">
+    <a href="/blog/posts/itc-recovery-deadline-guide.html" class="card card-hover"><span class="blog-tag">ITC Recovery</span><div class="blog-title">Why 82% of SMBs Miss ITC Claims</div></a>
+    <a href="/blog/posts/gst-itc-rules-2026.html" class="card card-hover"><span class="blog-tag">GST Compliance</span><div class="blog-title">GST ITC Rules in 2026</div></a>
+    <a href="/blog/posts/vendor-gst-non-compliance.html" class="card card-hover"><span class="blog-tag">Vendor Management</span><div class="blog-title">When a Vendor Won't File</div></a>
+  </div>
+</div>
+</article>
+</main>
+<div id="footer-root"></div>
+<script src="/js/components.js"></script><script src="/js/main.js"></script>
+</body>
+</html>

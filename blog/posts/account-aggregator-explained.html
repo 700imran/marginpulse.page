@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="A plain-English guide to RBI's Account Aggregator framework — how it works, why it's safer than sharing bank passwords, and what it means for real-time business reconciliation."/>
+<meta name="keywords" content="RBI Account Aggregator, AA framework India, open banking India, bank data sharing consent"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://marginpulsepro.in/blog/posts/account-aggregator-explained.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="RBI Account Aggregator Explained"/>
+<meta property="og:description" content="India's new financial data-sharing framework gives you real-time bank access without sharing passwords."/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article",
+ "headline":"RBI Account Aggregator Explained: What It Means for Your Finance Team",
+ "datePublished":"2026-06-12","dateModified":"2026-06-12",
+ "author":{"@type":"Organization","name":"MarginPulse Pro"},
+ "publisher":{"@type":"Organization","name":"MarginPulse Technologies Pvt Ltd"}}
+</script>
+<title>RBI Account Aggregator Explained | MarginPulse Pro</title>
+<link rel="stylesheet" href="/css/global.css"/>
+<link rel="stylesheet" href="/css/nav.css"/>
+<link rel="stylesheet" href="/css/blog.css"/>
+</head>
+<body>
+<div id="nav-root"></div>
+<main>
+<article>
+<section class="article-hero">
+  <div class="container-sm">
+    <span class="badge badge-teal">Bank Reconciliation</span>
+    <h1 class="h2" style="margin-top:14px;">RBI Account Aggregator Explained: What It Means for Your Finance Team</h1>
+    <div class="article-meta-row body-sm"><span>June 12, 2026</span><span>·</span><span>6 min read</span><span>·</span><span>By MarginPulse Pro Team</span></div>
+  </div>
+</section>
+<div class="article-body">
+  <p>If you've ever hesitated to connect your bank account to a finance tool because it felt like handing over your password to a stranger, you're not alone — and you're right to be cautious. But India now has a regulated framework that solves exactly this problem, and it's worth understanding before you decide whether to use it.</p>
+
+  <h2>What is the Account Aggregator framework?</h2>
+  <p>The Account Aggregator (AA) framework is a system set up under guidelines from the Reserve Bank of India that lets you share your financial data — like bank transactions — with another company, without ever giving that company your bank login credentials. Instead, you authorise the connection directly through your bank or a licensed AA app, and the data flows through a regulated, consent-based pipe.</p>
+  <p>Think of it less like handing someone your house key, and more like giving a courier a one-time, revocable pass that only lets them deliver one specific package to one specific address — and you can cancel that pass at any moment.</p>
+
+  <h2>Why this matters more than it sounds like it does</h2>
+  <p>Before AA, businesses that wanted automated bank data into a tool like an accounting platform had exactly two options: manually export and upload CSV statements every month, or use a tool that asked for net-banking credentials directly (a serious security risk, and one most banks explicitly warn against).</p>
+  <p>The AA framework removes that trade-off entirely. You get live, automated access to your transaction data, without exposing your actual banking credentials to any third party — including us.</p>
+
+  <h2>How the connection actually works, step by step</h2>
+  <ol>
+    <li><strong>You initiate the request</strong> from within the app (e.g. MarginPulse Pro) asking to connect a specific bank account.</li>
+    <li><strong>You're redirected to your bank's AA consent screen</strong> (or a licensed AA app like the ones run by major banks), where you explicitly approve what data is shared and for how long.</li>
+    <li><strong>Data flows directly</strong> from your bank to the requesting app through the regulated AA pipeline — read-only, and only for what you approved.</li>
+    <li><strong>You can revoke access at any time</strong> from your bank's app or AA dashboard — no need to contact the company you connected to.</li>
+  </ol>
+
+  <h2>What "read-only" actually guarantees</h2>
+  <p>This is the part that matters most for trust: a read-only AA connection cannot initiate a transfer, make a payment, or change anything in your account. It is architecturally incapable of doing so — there's no API call in the AA specification that allows a write action through this channel. The worst-case scenario of a compromised AA connection is that someone sees your transaction history, not that money moves.</p>
+
+  <h2>What this enables for reconciliation specifically</h2>
+  <p>Before AA, "automated" reconciliation tools were really "automated once you manually upload a file" tools. The actual bank data was always a snapshot from whenever someone last exported it — usually once a month, often later than that.</p>
+  <p>With a live AA connection, a reconciliation engine can see new transactions the moment they post. That changes the entire nature of the problem: instead of comparing last month's bank activity against last month's invoices in a single batch job, you can compare them continuously, and surface a mismatch the same day it happens — while it's still easy to investigate and fix.</p>
+
+  <h2>What to ask before connecting any tool via AA</h2>
+  <ul>
+    <li>Does the tool request read-only access, or does it ask for broader permissions than it needs?</li>
+    <li>Can you revoke access independently, from your own bank app, without depending on the third party to process the request?</li>
+    <li>Is the company explicit about what data it pulls and how long it retains it?</li>
+  </ul>
+  <p>Any legitimate AA-integrated platform should answer all three clearly. If a tool is vague about these, that's worth treating as a red flag regardless of how good the rest of the product looks.</p>
+
+  <div class="article-cta">
+    <h3>See live bank reconciliation for yourself</h3>
+    <p class="body-sm" style="margin-bottom:16px;">Connect via Account Aggregator in under 5 minutes — read-only, revocable anytime.</p>
+    <button class="btn btn-primary" onclick="window.location.href='https://marginpulse-02-frontend-web.vercel.app/'">Start Reconciling — ₹999 First Month</button>
+  </div>
+</div>
+<div class="related-posts">
+  <h3>Related Reading</h3>
+  <div class="grid-3">
+    <a href="/blog/posts/manual-vs-automated-reconciliation.html" class="card card-hover"><span class="blog-tag">Reconciliation</span><div class="blog-title">Manual vs Automated Reconciliation</div></a>
+    <a href="/blog/posts/cashflow-vs-booked-revenue.html" class="card card-hover"><span class="blog-tag">Cash Flow</span><div class="blog-title">Cash Flow vs Booked Revenue</div></a>
+    <a href="/blog/posts/revenue-leakage-types.html" class="card card-hover"><span class="blog-tag">Revenue Leakage</span><div class="blog-title">5 Types of Revenue Leakage</div></a>
+  </div>
+</div>
+</article>
+</main>
+<div id="footer-root"></div>
+<script src="/js/components.js"></script><script src="/js/main.js"></script>
+</body>
+</html>
