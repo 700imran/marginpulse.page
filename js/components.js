@@ -5,10 +5,30 @@
 
 const APP_URL = "https://marginpulse-02-frontend-web.vercel.app/";
 
+/* ── Compute relative base path from this script's own depth ──
+   Works on any host: root domain, subpath (GitHub Pages project site),
+   or custom domain. No leading "/" used anywhere below. ── */
+const SITE_BASE = (() => {
+  const scripts = document.getElementsByTagName("script");
+  for (const s of scripts) {
+    if (s.src && s.src.includes("/js/components.js")) {
+      const scriptPath = new URL(s.src).pathname;
+      const scriptDir = scriptPath.substring(0, scriptPath.indexOf("/js/components.js"));
+      let pagePath = window.location.pathname;
+      if (pagePath.startsWith(scriptDir)) pagePath = pagePath.substring(scriptDir.length);
+      const levels = pagePath.split("/").filter(Boolean).length - 1; // folders between site root and this page
+      return levels > 0 ? "../".repeat(levels) : "./";
+    }
+  }
+  return "./";
+})();
+
+const B = SITE_BASE; /* shorthand */
+
 const NAV_HTML = `
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="/index.html" class="nav-logo" aria-label="MarginPulse Pro home">
+    <a href="${B}index.html" class="nav-logo" aria-label="MarginPulse Pro home">
       <div class="nav-logo-mark" aria-hidden="true">M</div>
       <div>
         <div class="nav-logo-name">MarginPulse <span>Pro</span></div>
@@ -17,16 +37,17 @@ const NAV_HTML = `
     </a>
 
     <div class="nav-links" role="menubar">
-      <a href="/index.html"       class="nav-link" data-href="index.html"   role="menuitem">Home</a>
-      <a href="/pages/pricing.html"  class="nav-link" data-href="pricing.html"  role="menuitem">Pricing</a>
-      <a href="/pages/about.html"    class="nav-link" data-href="about.html"    role="menuitem">About</a>
-      <a href="/pages/security.html" class="nav-link" data-href="security.html" role="menuitem">Security</a>
-      <a href="/blog/index.html"     class="nav-link" data-href="index.html"    role="menuitem">Blog</a>
-      <a href="/pages/contact.html"  class="nav-link" data-href="contact.html"  role="menuitem">Contact</a>
+      <a href="${B}index.html"          class="nav-link" data-href="index.html"   role="menuitem">Home</a>
+      <a href="${B}pages/pricing.html"  class="nav-link" data-href="pricing.html"  role="menuitem">Pricing</a>
+      <a href="${B}pages/about.html"    class="nav-link" data-href="about.html"    role="menuitem">About</a>
+      <a href="${B}pages/security.html" class="nav-link" data-href="security.html" role="menuitem">Security</a>
+      <a href="${B}blog/index.html"     class="nav-link" data-href="index.html"    role="menuitem">Blog</a>
+      <a href="${B}pages/contact.html"  class="nav-link" data-href="contact.html"  role="menuitem">Contact</a>
     </div>
 
     <div class="nav-actions">
       <button class="nav-signin" onclick="window.location.href='${APP_URL}'" aria-label="Sign in to dashboard">Sign In</button>
+      <button class="nav-waitlist" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd5Dgw_Pe2WLRNGF2ES4j2o_8q6pYl3w8yV2QhUaZn5yqZr2g/viewform?usp=publish-editor','_blank')" aria-label="Join the waitlist">Join Waitlist</button>
       <button class="nav-cta"    onclick="window.location.href='${APP_URL}'" aria-label="Start free trial">Start Free →</button>
     </div>
 
@@ -37,13 +58,14 @@ const NAV_HTML = `
 </nav>
 
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="/index.html"          class="mobile-nav-link">Home</a>
-  <a href="/pages/pricing.html"  class="mobile-nav-link">Pricing</a>
-  <a href="/pages/about.html"    class="mobile-nav-link">About</a>
-  <a href="/pages/security.html" class="mobile-nav-link">Security</a>
-  <a href="/blog/index.html"     class="mobile-nav-link">Blog & Resources</a>
-  <a href="/pages/contact.html"  class="mobile-nav-link">Contact</a>
+  <a href="${B}index.html"          class="mobile-nav-link">Home</a>
+  <a href="${B}pages/pricing.html"  class="mobile-nav-link">Pricing</a>
+  <a href="${B}pages/about.html"    class="mobile-nav-link">About</a>
+  <a href="${B}pages/security.html" class="mobile-nav-link">Security</a>
+  <a href="${B}blog/index.html"     class="mobile-nav-link">Blog & Resources</a>
+  <a href="${B}pages/contact.html"  class="mobile-nav-link">Contact</a>
   <div class="mobile-divider"></div>
+  <button class="mobile-waitlist" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd5Dgw_Pe2WLRNGF2ES4j2o_8q6pYl3w8yV2QhUaZn5yqZr2g/viewform?usp=publish-editor','_blank')">Join Waitlist</button>
   <button class="mobile-cta" onclick="window.location.href='${APP_URL}'">Sign In to Dashboard →</button>
 </div>`;
 
@@ -65,23 +87,23 @@ const FOOTER_HTML = `
       </div>
       <div class="footer-col">
         <h4>Product</h4>
-        <a href="/index.html">How It Works</a>
-        <a href="/pages/pricing.html">Pricing</a>
-        <a href="/pages/security.html">Security</a>
-        <a href="/blog/index.html">Resources</a>
+        <a href="${B}index.html">How It Works</a>
+        <a href="${B}pages/pricing.html">Pricing</a>
+        <a href="${B}pages/security.html">Security</a>
+        <a href="${B}blog/index.html">Resources</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="/pages/about.html">About Us</a>
-        <a href="/pages/contact.html">Contact</a>
-        <a href="/blog/index.html">Blog</a>
+        <a href="${B}pages/about.html">About Us</a>
+        <a href="${B}pages/contact.html">Contact</a>
+        <a href="${B}blog/index.html">Blog</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>
-        <a href="/pages/privacy.html">Privacy Policy</a>
-        <a href="/pages/terms.html">Terms of Service</a>
-        <a href="/pages/cookies.html">Cookie Policy</a>
-        <a href="/pages/refund.html">Refund Policy</a>
+        <a href="${B}pages/privacy.html">Privacy Policy</a>
+        <a href="${B}pages/terms.html">Terms of Service</a>
+        <a href="${B}pages/cookies.html">Cookie Policy</a>
+        <a href="${B}pages/refund.html">Refund Policy</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -98,7 +120,7 @@ const FOOTER_HTML = `
 <div id="cookie-banner" role="region" aria-label="Cookie consent">
   <div class="cookie-text">
     We use essential cookies for authentication and, with your consent, analytics cookies to improve our site.
-    See our <a href="/pages/cookies.html">Cookie Policy</a> and <a href="/pages/privacy.html">Privacy Policy</a>.
+    See our <a href="${B}pages/cookies.html">Cookie Policy</a> and <a href="${B}pages/privacy.html">Privacy Policy</a>.
   </div>
   <div class="cookie-actions">
     <button class="cookie-reject" id="cookie-reject">Essential Only</button>
@@ -106,7 +128,7 @@ const FOOTER_HTML = `
   </div>
 </div>
 
-<button id="scroll-top" aria-label="Back to top">↑</button>`;
+<button id="scroll-top" aria-label="Back to top"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"></use></svg></button>`;
 
 /* ── Inject into page ── */
 document.addEventListener("DOMContentLoaded", () => {
