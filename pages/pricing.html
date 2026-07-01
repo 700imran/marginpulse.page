@@ -1,187 +1,614 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="MarginPulse Pro pricing — Starter ₹1,499/mo, Growth ₹4,999/mo, Business ₹12,999/mo. First month ₹999. Cancel anytime. Real-time GST reconciliation for Indian businesses."/>
-  <meta name="keywords" content="MarginPulse Pro pricing, GST software pricing India, reconciliation software cost, ITC recovery software"/>
-  <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://marginpulsepro.in/pages/pricing.html"/>
-  <meta property="og:title"       content="Pricing — MarginPulse Pro"/>
-  <meta property="og:description" content="Simple, transparent pricing for real-time GST and bank reconciliation. Start for ₹999 your first month."/>
-  <meta property="og:url"         content="https://marginpulsepro.in/pages/pricing.html"/>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"PriceSpecification","name":"MarginPulse Pro Pricing",
-   "description":"Monthly SaaS subscription for real-time GST reconciliation",
-   "priceCurrency":"INR","price":"1499"}
-  </script>
-  <title>Pricing — MarginPulse Pro</title>
-  <link rel="stylesheet" href="/css/global.css"/>
-  <link rel="stylesheet" href="/css/nav.css"/>
-  <link rel="stylesheet" href="/css/pages.css"/>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="MarginPulse Pro pricing — value-based plans for businesses and chartered accountants. From ₹15,000/month. Start with a Finance Integrity Assessment."/>
+<meta name="keywords" content="GST reconciliation pricing, MarginPulse Pro plans, CA reconciliation software, ITC recovery software India, finance SaaS pricing India"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://marginpulsepro.in/pages/pricing.html"/>
+<meta property="og:title" content="Pricing — MarginPulse Pro"/>
+<meta property="og:description" content="Outcome-based pricing for Indian businesses and CAs. Pay for value recovered, not for features you'll never use."/>
+<meta property="og:url" content="https://marginpulsepro.in/pages/pricing.html"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"PriceSpecification","name":"MarginPulse Pro Pricing",
+ "description":"Outcome-based SaaS subscription for real-time GST and bank reconciliation",
+ "priceCurrency":"INR","minPrice":"15000","maxPrice":"1000000"}
+</script>
+<title>Pricing — MarginPulse Pro | Value-Based GST Reconciliation</title>
+<link rel="stylesheet" href="../css/global.css"/>
+<link rel="stylesheet" href="../css/nav.css"/>
+<link rel="stylesheet" href="../css/pages.css"/>
+<style>
+/* ── Pricing page extras ── */
+.pricing-tabs { display:flex; gap:4px; background:#f1f5f9; border-radius:10px;
+                padding:4px; max-width:440px; margin:32px auto 0; }
+.ptab { flex:1; padding:11px 16px; border-radius:8px; font-size:14px; font-weight:700;
+        border:none; cursor:pointer; transition:all .15s; color:var(--muted);
+        background:transparent; }
+.ptab.active { background:#fff; color:var(--slate);
+               box-shadow:0 1px 4px rgba(15,23,42,.1); }
+
+.pricing-track { display:none; }
+.pricing-track.active { display:block; }
+
+/* Diagnostic card */
+.diag-card {
+  max-width:900px; margin:0 auto 56px;
+  background:linear-gradient(135deg,var(--slate) 0%,#134e4a 100%);
+  border-radius:16px; padding:40px 48px;
+  display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center;
+}
+.diag-card h2 { font-size:22px; font-weight:900; color:#fff;
+                letter-spacing:-.02em; margin-bottom:8px; }
+.diag-card p  { font-size:14px; color:#94a3b8; line-height:1.65; margin-bottom:0; }
+.diag-price   { text-align:center; flex-shrink:0; }
+.diag-price-val { font-size:32px; font-weight:900; color:#fff;
+                  letter-spacing:-.03em; line-height:1; }
+.diag-price-sub { font-size:12px; color:#94a3b8; margin-top:4px; margin-bottom:16px; }
+.diag-deliverables { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:20px; }
+.diag-item { display:flex; align-items:flex-start; gap:8px; font-size:13px; color:#cbd5e1; }
+.diag-item .icon { color:var(--teal-mid); flex-shrink:0; width:14px; height:14px; margin-top:2px; }
+
+/* 4-col business grid */
+.pricing-grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+                  margin-top:48px; }
+/* CA grid (3 col) uses existing .pricing-grid */
+
+/* hybrid pricing breakdown */
+.hybrid-box { background:var(--bg); border:1px solid var(--border);
+              border-radius:var(--radius-lg); padding:28px 32px; margin-top:48px;
+              max-width:900px; margin-left:auto; margin-right:auto; }
+.hybrid-box h3 { font-size:16px; font-weight:800; color:var(--slate); margin-bottom:6px; }
+.hybrid-rows { margin-top:16px; }
+.hybrid-row { display:flex; justify-content:space-between; align-items:flex-start;
+              padding:12px 0; border-bottom:1px solid var(--border); gap:24px; }
+.hybrid-row:last-child { border-bottom:none; }
+.hybrid-row-label { font-size:13px; font-weight:700; color:var(--slate); flex:1; }
+.hybrid-row-desc  { font-size:12px; color:var(--muted); margin-top:2px; }
+.hybrid-row-price { font-size:14px; font-weight:800; color:var(--teal-dark);
+                    flex-shrink:0; white-space:nowrap; }
+
+/* ROI calculator strip */
+.roi-strip { background:var(--teal-light); border:1px solid var(--teal-border);
+             border-radius:var(--radius-lg); padding:28px 32px;
+             max-width:900px; margin:32px auto 0;
+             display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; }
+.roi-numbers { display:flex; gap:32px; flex-wrap:wrap; }
+.roi-stat-val { font-size:28px; font-weight:900; color:var(--slate);
+                letter-spacing:-.03em; line-height:1; }
+.roi-stat-val em { color:var(--teal); font-style:normal; }
+.roi-stat-label { font-size:11px; color:var(--muted); margin-top:3px;
+                  text-transform:uppercase; letter-spacing:.06em; font-weight:600; }
+
+/* enterprise custom row */
+.enterprise-row { max-width:900px; margin:20px auto 0;
+                  border:1.5px solid var(--border); border-radius:var(--radius-lg);
+                  padding:24px 32px; display:flex; justify-content:space-between;
+                  align-items:center; gap:24px; flex-wrap:wrap; }
+.enterprise-row h3 { font-size:16px; font-weight:800; color:var(--slate); margin-bottom:4px; }
+
+/* CA highlight band */
+.ca-band { background:linear-gradient(90deg,#ede9fe 0%,#f0fdfa 100%);
+           border:1px solid var(--teal-border); border-radius:var(--radius-lg);
+           padding:16px 24px; margin-bottom:32px; display:flex; align-items:center; gap:14px; }
+.ca-band-icon { width:40px; height:40px; background:#fff; border-radius:10px;
+                display:flex; align-items:center; justify-content:center;
+                color:var(--indigo); flex-shrink:0; box-shadow:var(--shadow-sm); }
+.ca-band-icon .icon { width:22px; height:22px; }
+
+/* comparison table */
+.compare-table { width:100%; border-collapse:collapse; margin-top:48px; font-size:13px; }
+.compare-table th { padding:12px 16px; background:var(--slate); color:#fff;
+                    font-size:11px; font-weight:700; text-transform:uppercase;
+                    letter-spacing:.07em; text-align:left; }
+.compare-table th:first-child { border-radius:var(--radius) 0 0 0; }
+.compare-table th:last-child  { border-radius:0 var(--radius) 0 0; }
+.compare-table td { padding:12px 16px; border-bottom:1px solid var(--border); color:var(--text); }
+.compare-table tr:last-child td { border-bottom:none; }
+.compare-table tr:nth-child(even) td { background:var(--bg); }
+.compare-table .check { color:var(--teal); font-weight:800; }
+.compare-table .dash  { color:var(--border); }
+.compare-table .bold  { font-weight:700; color:var(--slate); }
+
+@media(max-width:900px){
+  .pricing-grid-4 { grid-template-columns:repeat(2,1fr); }
+  .diag-card { grid-template-columns:1fr; }
+  .roi-strip { grid-template-columns:1fr; }
+  .enterprise-row { flex-direction:column; }
+}
+@media(max-width:600px){
+  .pricing-grid-4 { grid-template-columns:1fr; }
+  .diag-deliverables { grid-template-columns:1fr; }
+}
+</style>
 </head>
 <body>
+<script src="../js/icons.js"></script>
 <div id="nav-root"></div>
-
 <main>
-<!-- ── Page Hero ── -->
+
+<!-- ── Hero ── -->
 <section class="page-hero text-center">
   <div class="container">
-    <span class="eyebrow">Transparent Pricing</span>
-    <h1 class="h2">Simple plans. No hidden costs.</h1>
-    <p class="lead" style="max-width:520px;margin:12px auto 0;">One monthly charge. Cancel anytime. No setup fees, no per-transaction charges, no surprise invoices.</p>
-    <div class="pricing-toggle" style="justify-content:center;margin-top:24px;">
-      <span>Monthly</span>
-      <div class="toggle-track monthly" id="billing-toggle" role="switch" aria-checked="false" aria-label="Toggle annual billing" tabindex="0">
-        <div class="toggle-thumb"></div>
-      </div>
-      <span>Annual <span id="annual-pill" class="badge badge-teal" style="display:none;margin-left:6px;">Save 2 months</span></span>
+    <span class="eyebrow">Pricing</span>
+    <h1 class="h2">Priced on value recovered.<br/>Not on features you won't use.</h1>
+    <p class="lead" style="max-width:560px;margin:14px auto 0;">A CFO can approve ₹3–6 lakh/year easily if the platform recovers ₹12 lakh in missed ITC and saves 200 hours of manual work. That's the conversation we price around.</p>
+    <div class="pricing-tabs" role="tablist" aria-label="Pricing tracks">
+      <button class="ptab active" id="tab-biz" role="tab" aria-selected="true"
+              aria-controls="track-biz" onclick="switchTab('biz')">For Businesses</button>
+      <button class="ptab" id="tab-ca" role="tab" aria-selected="false"
+              aria-controls="track-ca" onclick="switchTab('ca')">For CAs & Firms</button>
     </div>
   </div>
 </section>
 
-<!-- ── Pricing Cards ── -->
+<!-- ════════════════════════════════════════
+     TRACK A — BUSINESSES
+     ════════════════════════════════════════ -->
+<div id="track-biz" class="pricing-track active" role="tabpanel" aria-labelledby="tab-biz">
 <section class="section" style="padding-top:48px;">
   <div class="container">
-    <div class="pricing-grid">
 
-      <!-- Starter -->
-      <article class="price-card" aria-label="Starter plan">
-        <div class="price-plan">Starter</div>
-        <div class="price-amount"><sup>₹</sup><span id="price-starter">1,499</span></div>
-        <div class="price-period">per month</div>
-        <p class="price-desc">For small businesses and sole-proprietors getting started with live bank monitoring and invoice matching.</p>
-        <ul class="price-features" aria-label="Starter plan features">
-          <li>1 bank account (live AA connection)</li>
-          <li>Up to 150 transactions / month</li>
-          <li>Real-time Bank ↔ Invoice matching</li>
-          <li>Mismatch &amp; leakage dashboard</li>
-          <li>WhatsApp &amp; Email document ingest</li>
-          <li>Manual CSV bank statement upload</li>
-          <li>Basic audit trail export (CSV)</li>
-          <li class="off">GST portal real-time sync (2A/2B)</li>
-          <li class="off">Live ITC risk alerts</li>
-          <li class="off">Vendor reminder automation</li>
-          <li class="off">Team member access</li>
+    <!-- Step 1: Diagnostic -->
+    <div style="text-align:center;margin-bottom:32px;">
+      <span class="eyebrow">Step 1 — Start Here</span>
+      <h2 class="h3">Finance Integrity Assessment</h2>
+      <p class="body-sm" style="max-width:540px;margin:8px auto 0;">Before subscribing, we run a paid diagnostic on your actual data. You'll see exactly how much ITC is at risk, where cash is leaking, and what automation would save — with numbers, not promises.</p>
+    </div>
+
+    <div class="diag-card">
+      <div>
+        <h2>Finance Integrity Assessment</h2>
+        <p>A deep diagnostic of your last 12 months of bank, invoice, and GST data. You leave with a quantified business case — not a sales pitch.</p>
+        <div class="diag-deliverables">
+          <div class="diag-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>GST reconciliation score</div>
+          <div class="diag-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>Vendor mismatch analysis</div>
+          <div class="diag-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>Estimated ITC leakage (₹)</div>
+          <div class="diag-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>Duplicate payment detection</div>
+          <div class="diag-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>Revenue leakage exceptions</div>
+          <div class="diag-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>ROI model for continuous monitoring</div>
+        </div>
+      </div>
+      <div class="diag-price">
+        <div class="diag-price-val">₹10,000<br/>–₹50,000</div>
+        <div class="diag-price-sub">one-time · based on entity size</div>
+        <button class="btn btn-primary" onclick="window.location.href='contact.html'">Book Assessment →</button>
+        <p style="font-size:11px;color:#64748b;margin-top:10px;">Fee credited toward<br/>first subscription month</p>
+      </div>
+    </div>
+
+    <!-- ROI context strip -->
+    <div class="roi-strip">
+      <div>
+        <div style="font-size:13px;font-weight:700;color:var(--slate);margin-bottom:12px;">
+          What assessments typically uncover — across our first customers:
+        </div>
+        <div class="roi-numbers">
+          <div>
+            <div class="roi-stat-val">₹<em>8–40L</em></div>
+            <div class="roi-stat-label">ITC recoverable p.a.</div>
+          </div>
+          <div>
+            <div class="roi-stat-val"><em>120–300</em></div>
+            <div class="roi-stat-label">Finance hours saved / year</div>
+          </div>
+          <div>
+            <div class="roi-stat-val"><em>3–8×</em></div>
+            <div class="roi-stat-label">Typical subscription ROI</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:var(--muted);text-align:center;max-width:180px;">
+          ROI data from pilot customers. Actual results vary by entity size, complexity, and vendor compliance rate.
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Subscription -->
+    <div style="text-align:center;margin:64px 0 32px;">
+      <span class="eyebrow">Step 2 — Ongoing Subscription</span>
+      <h2 class="h3">Continuous Monitoring Plans</h2>
+      <p class="body-sm" style="max-width:560px;margin:8px auto 0;">Annual contracts. Fixed monthly equivalent billing. No variable or success fees — your finance team gets a predictable budget line and we get aligned incentives to keep delivering.</p>
+    </div>
+
+    <div class="pricing-grid-4">
+
+      <!-- SME -->
+      <article class="price-card" aria-label="SME plan">
+        <div class="price-plan">SME</div>
+        <p style="font-size:11px;color:var(--muted);margin-bottom:12px;">Turnover up to ₹50 Cr</p>
+        <div class="price-amount"><sup>₹</sup>15,000</div>
+        <div class="price-period">per month · billed annually</div>
+        <p class="price-desc">Real-time reconciliation for a single-entity business with straightforward GST filing and moderate transaction volume.</p>
+        <ul class="price-features">
+          <li>1 GSTIN / legal entity</li>
+          <li>Up to 500 transactions/month</li>
+          <li>Live bank sync (AA framework)</li>
+          <li>GST portal sync — GSTR-2A/2B</li>
+          <li>ITC risk alerts before deadlines</li>
+          <li>Revenue leakage detection</li>
+          <li>WhatsApp &amp; email doc ingest</li>
+          <li>Basic audit trail export</li>
+          <li class="off">Multi-entity / multi-GSTIN</li>
+          <li class="off">ERP integration</li>
+          <li class="off">Dedicated account manager</li>
         </ul>
-        <button class="price-btn secondary" onclick="window.location.href='https://marginpulse-02-frontend-web.vercel.app/'" aria-label="Start Starter plan">Start for ₹999 (1st month)</button>
+        <button class="price-btn secondary" onclick="window.location.href='contact.html'">Get a Quote</button>
       </article>
 
       <!-- Growth (popular) -->
       <article class="price-card popular" aria-label="Growth plan — most popular">
-        <div class="popular-badge" aria-label="Most popular plan">Most Popular</div>
+        <div class="popular-badge">Most Popular</div>
         <div class="price-plan">Growth</div>
-        <div class="price-amount"><sup>₹</sup><span id="price-growth">4,999</span></div>
-        <div class="price-period">per month</div>
-        <p class="price-desc">For growing businesses where GST compliance and ITC recovery are active revenue priorities.</p>
-        <ul class="price-features" aria-label="Growth plan features">
-          <li>Up to 3 bank accounts (live AA)</li>
-          <li>Up to 750 transactions / month</li>
-          <li>Real-time Bank ↔ Invoice matching</li>
-          <li>Real-time GST portal sync (GSTR-2A/2B)</li>
-          <li>Live ITC risk alerts (before deadlines)</li>
-          <li>Vendor GSTR-1 filing status monitoring</li>
+        <p style="font-size:11px;color:var(--muted);margin-bottom:12px;">Turnover ₹50–500 Cr</p>
+        <div class="price-amount"><sup>₹</sup>40,000</div>
+        <div class="price-period">per month · billed annually</div>
+        <p class="price-desc">Multi-entity businesses where ITC recovery, vendor compliance, and audit readiness are active priorities.</p>
+        <ul class="price-features">
+          <li>Up to 3 GSTINs / entities</li>
+          <li>Up to 2,500 transactions/month</li>
+          <li>Live bank sync — multiple accounts</li>
+          <li>GST portal sync — GSTR-2A/2B</li>
+          <li>ITC risk alerts &amp; vendor tracking</li>
           <li>WhatsApp vendor reminder automation</li>
-          <li>Full audit trail export (CSV + PDF)</li>
-          <li>WhatsApp &amp; Email document ingest</li>
-          <li>2 team member seats</li>
+          <li>Full audit trail — CSV + PDF</li>
+          <li>Month-end close pack</li>
+          <li>2 team seats + CA access</li>
           <li>Priority email support</li>
+          <li class="off">ERP integration</li>
         </ul>
-        <button class="price-btn primary" onclick="window.location.href='https://marginpulse-02-frontend-web.vercel.app/'" aria-label="Start Growth plan">Start for ₹999 (1st month)</button>
+        <button class="price-btn primary" onclick="window.location.href='contact.html'">Get a Quote</button>
       </article>
 
-      <!-- Business -->
-      <article class="price-card" aria-label="Business plan">
-        <div class="price-plan">Business</div>
-        <div class="price-amount"><sup>₹</sup><span id="price-business">12,999</span></div>
-        <div class="price-period">per month</div>
-        <p class="price-desc">For established mid-size businesses needing unlimited coverage, API access, and full audit-ready operations.</p>
-        <ul class="price-features" aria-label="Business plan features">
-          <li>Unlimited bank accounts</li>
-          <li>Unlimited transactions / month</li>
-          <li>Everything in Growth</li>
-          <li>REST API &amp; webhook access</li>
-          <li>Full PDF reconciliation reports</li>
-          <li>Unlimited team seats</li>
+      <!-- Mid-Market -->
+      <article class="price-card" aria-label="Mid-Market plan">
+        <div class="price-plan">Mid-Market</div>
+        <p style="font-size:11px;color:var(--muted);margin-bottom:12px;">Turnover ₹500 Cr–₹2,000 Cr</p>
+        <div class="price-amount"><sup>₹</sup>1,00,000</div>
+        <div class="price-period">per month · billed annually</div>
+        <p class="price-desc">Multi-entity, multi-jurisdiction operations with ERP integration and complex reconciliation workflows.</p>
+        <ul class="price-features">
+          <li>Up to 10 GSTINs / entities</li>
+          <li>Up to 10,000 transactions/month</li>
+          <li>Live bank sync — unlimited accounts</li>
+          <li>GST portal sync — full suite</li>
+          <li>ERP integration (Tally, SAP, Zoho)</li>
+          <li>Advanced anomaly detection</li>
+          <li>Full automation + reminders</li>
+          <li>Full audit trail + regulator exports</li>
+          <li>5 team seats + unlimited CA access</li>
           <li>Dedicated account manager</li>
           <li>99.9% uptime SLA</li>
-          <li>Custom GSTIN / multi-entity support</li>
-          <li>Onboarding call included</li>
         </ul>
-        <button class="price-btn secondary" onclick="window.location.href='/pages/contact.html'" aria-label="Contact us for Business plan">Talk to Us</button>
+        <button class="price-btn secondary" onclick="window.location.href='contact.html'">Get a Quote</button>
       </article>
+
+      <!-- Enterprise -->
+      <article class="price-card" aria-label="Enterprise plan">
+        <div class="price-plan">Enterprise</div>
+        <p style="font-size:11px;color:var(--muted);margin-bottom:12px;">Turnover ₹2,000 Cr+</p>
+        <div class="price-amount" style="font-size:28px;">Custom</div>
+        <div class="price-period">annual contract</div>
+        <p class="price-desc">Custom implementation, multiple jurisdictions, full ERP integration, and a managed reconciliation service layer.</p>
+        <ul class="price-features">
+          <li>Unlimited GSTINs / entities</li>
+          <li>Unlimited transaction volume</li>
+          <li>Full ERP &amp; API integration suite</li>
+          <li>Multi-jurisdiction GST support</li>
+          <li>Managed reconciliation service option</li>
+          <li>Custom audit workflow design</li>
+          <li>Executive reporting dashboard</li>
+          <li>Unlimited team seats</li>
+          <li>Named enterprise support team</li>
+          <li>Custom SLA with financial penalties</li>
+          <li>On-site implementation support</li>
+        </ul>
+        <button class="price-btn secondary" onclick="window.location.href='contact.html'">Talk to Us</button>
+      </article>
+
+    </div><!-- /pricing-grid-4 -->
+
+    <!-- Hybrid pricing breakdown -->
+    <div class="hybrid-box">
+      <h3>How platform pricing scales with complexity</h3>
+      <p class="body-sm" style="margin-top:4px;margin-bottom:0;">Transaction count alone isn't always a fair proxy for value. A business reconciling across 5 ERPs and 3 GSTINs with complex vendor matching derives substantially more value than one with twice the invoice count but simple workflows. Our pricing reflects that.</p>
+      <div class="hybrid-rows">
+        <div class="hybrid-row">
+          <div>
+            <div class="hybrid-row-label">Base platform fee</div>
+            <div class="hybrid-row-desc">Included in every plan — live bank + GST portal connection, core matching engine, dashboard, alerts</div>
+          </div>
+          <div class="hybrid-row-price">Included</div>
+        </div>
+        <div class="hybrid-row">
+          <div>
+            <div class="hybrid-row-label">Additional GSTINs / legal entities</div>
+            <div class="hybrid-row-desc">Each additional registration beyond your plan's included count</div>
+          </div>
+          <div class="hybrid-row-price">₹5,000–₹15,000/GSTIN/mo</div>
+        </div>
+        <div class="hybrid-row">
+          <div>
+            <div class="hybrid-row-label">ERP integration</div>
+            <div class="hybrid-row-desc">Tally, SAP, Oracle, Zoho Books, custom via API — one-time setup + monthly connector fee</div>
+          </div>
+          <div class="hybrid-row-price">₹25,000 setup + ₹5,000/mo</div>
+        </div>
+        <div class="hybrid-row">
+          <div>
+            <div class="hybrid-row-label">Implementation &amp; onboarding</div>
+            <div class="hybrid-row-desc">Data migration, historical reconciliation load, team training, integration testing</div>
+          </div>
+          <div class="hybrid-row-price">₹1–10 lakh one-time</div>
+        </div>
+        <div class="hybrid-row">
+          <div>
+            <div class="hybrid-row-label">Managed reconciliation service</div>
+            <div class="hybrid-row-desc">Optional: our team runs reconciliation and delivers a sign-off-ready monthly pack to your CFO</div>
+          </div>
+          <div class="hybrid-row-price">₹25,000–₹75,000/mo</div>
+        </div>
+      </div>
     </div>
 
-    <p class="pricing-note" id="billing-note">Billed monthly · Switch to annual and save 2 months free</p>
-
-    <!-- Founding customer -->
-    <div class="founding-banner" style="max-width:700px;margin:56px auto 0;background:linear-gradient(135deg,#0f172a,#134e4a);border-radius:16px;padding:40px;text-align:center;">
-      <span class="eyebrow" style="color:#5eead4;">⚡ Limited Offer</span>
-      <h3 style="font-size:22px;font-weight:900;color:#fff;letter-spacing:-.02em;margin:8px 0 12px;">Founding Customer Pricing</h3>
-      <p style="color:#94a3b8;font-size:14px;line-height:1.65;margin-bottom:20px;">The first 100 paying businesses get 40% off their plan, locked in forever — not just a trial. Your price never increases.</p>
-      <div class="founding-spots">🟢 62 of 100 founding spots remaining</div>
-      <button class="btn btn-primary" onclick="window.location.href='https://marginpulse-02-frontend-web.vercel.app/'">Claim Founding Pricing →</button>
-    </div>
-
-    <!-- Comparison note for CAs -->
-    <div style="max-width:760px;margin:48px auto 0;padding:28px;background:var(--teal-light);border:1px solid var(--teal-border);border-radius:var(--radius-lg);">
-      <h3 style="font-size:16px;font-weight:800;color:var(--slate);margin-bottom:10px;">Are you a CA or accounting firm managing multiple clients?</h3>
-      <p class="body-sm" style="margin-bottom:16px;">Many CAs use MarginPulse Pro for each client entity separately, or manage multiple GSTINs under a single Business plan. Contact us for a custom multi-client arrangement with consolidated billing.</p>
-      <a href="/pages/contact.html" class="btn btn-dark btn-sm">Talk to Us About Multi-Client Pricing</a>
-    </div>
-
-    <!-- FAQ -->
+    <!-- FAQ Business -->
     <div style="max-width:720px;margin:64px auto 0;">
       <h2 class="h3 text-center mb-32">Common Questions</h2>
-
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">How is this different from uploading my bank statement?<span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">Uploads tell you what already happened. The live bank connection tells you what's happening now and what's about to happen — like a vendor's filing deadline approaching — while you still have time to act and recover the money.</div>
+        <button class="faq-q" aria-expanded="false">Why are these prices higher than typical SaaS tools?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Because we're not a generic SaaS tool. If your business is reconciling ₹100 crore+ annually, missing 1% in ITC or leakage is ₹1 crore — easily 10–20x the cost of a subscription. The comparison isn't "what does other software cost?" It's "what does it cost if we don't find this?" That's the price anchor we design around.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Is it safe to connect my bank account?<span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">Yes. Connections use the RBI-regulated Account Aggregator framework — read-only, consent-based. MarginPulse Pro cannot initiate transactions or move money. You can revoke access anytime from your bank's mobile app, without contacting us.</div>
+        <button class="faq-q" aria-expanded="false">Why no success fees or percentage of recovered credits?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Three reasons: attribution disputes ("would we have found it anyway?"), procurement complexity (CFOs prefer predictable budgets, not variable fees), and potential professional restrictions depending on engagement structure. Fixed annual contracts with clear deliverables are fairer to both sides.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Do I need to connect the GST portal, or can I just upload files?<span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">Both are supported. Uploading 2A/2B files works as a fallback for any plan. But live GST portal connection (Growth plan and above) means ITC risk alerts arrive while the filing window is still open — which is where the real savings come from.</div>
+        <button class="faq-q" aria-expanded="false">Is pricing negotiable for early customers?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Yes — for our first 20 customers we price individually based on entity count, ERP landscape, transaction volume, integration complexity, and estimated business value. The tiers above reflect natural bands from those early deals. If you're an early adopter, you'll also be included in product feedback loops and case study opportunities.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">What does "first month for ₹999" mean exactly?<span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">Any new account on any plan pays ₹999 for month one, regardless of plan tier. Month two onwards, the full plan price applies. This applies once per business account and cannot be combined with the annual billing discount.</div>
+        <button class="faq-q" aria-expanded="false">What's the typical contract structure?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Annual contracts with monthly equivalent billing. Minimum 12-month term for subscription plans. Implementation is billed separately at project start. Renewal is at agreed rates with a 30-day notice window for changes.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Can I cancel anytime?<span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">Yes. Monthly plans can be cancelled anytime from Settings. Cancellation takes effect at the end of your current billing period — you won't be charged again. Annual plans are refundable on a pro-rated basis within the first 30 days of purchase.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">What if my bank isn't in the Account Aggregator network yet?<span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">You can upload CSV bank statements as a fallback. Most major Indian banks (HDFC, ICICI, SBI, Axis, Kotak, Yes Bank, IDFC First) are already in the AA network. We'll add live connection the moment your bank is onboarded.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Is there a free trial?<span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">We don't offer a traditional free trial — instead, your first month on any plan is ₹999 regardless of tier. This gives you full access to run real reconciliation on your own data, rather than seeing a demo with fake numbers.</div>
+        <button class="faq-q" aria-expanded="false">Can we start with just the Assessment before committing to a subscription?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Yes — the Finance Integrity Assessment is designed as a standalone engagement. Most customers who go through it see a clear ROI case for the subscription, but there's no obligation. The assessment fee is credited toward your first subscription year if you proceed.</div>
       </div>
     </div>
+
   </div>
 </section>
+</div><!-- /track-biz -->
 
-<!-- ── CTA ── -->
-<section class="section section-gradient cta-section">
-  <div class="container text-center">
-    <h2 class="h2" style="color:#fff;">Ready to stop losing ITC?</h2>
-    <p class="lead" style="color:#94a3b8;margin:12px auto 36px;max-width:480px;">Connect your bank and GST portal once. From then on, MarginPulse Pro watches everything.</p>
+
+<!-- ════════════════════════════════════════
+     TRACK B — CHARTERED ACCOUNTANTS
+     ════════════════════════════════════════ -->
+<div id="track-ca" class="pricing-track" role="tabpanel" aria-labelledby="tab-ca">
+<section class="section" style="padding-top:48px;">
+  <div class="container">
+
+    <div class="ca-band">
+      <div class="ca-band-icon">
+        <svg class="icon" aria-hidden="true"><use href="#icon-briefcase"></use></svg>
+      </div>
+      <div>
+        <div style="font-size:14px;font-weight:800;color:var(--slate);">Built for CA practice management — not just one client</div>
+        <div class="body-sm" style="margin:0;">CA pricing is structured around your client count and firm size, not individual transaction volumes. One subscription covers your entire practice. Each client gets their own reconciliation dashboard, data separation, and audit trail.</div>
+      </div>
+    </div>
+
+    <!-- CA Diagnostic -->
+    <div style="text-align:center;margin-bottom:32px;">
+      <span class="eyebrow">Step 1 — Entry Point</span>
+      <h2 class="h3">Client Onboarding Assessment</h2>
+      <p class="body-sm" style="max-width:520px;margin:8px auto 0;">Run a paid reconciliation diagnostic for a new client — delivers immediate value, builds trust, and creates a documented business case for ongoing monitoring. Positions you as a proactive advisor, not just a filer.</p>
+    </div>
+
+    <div class="diag-card">
+      <div>
+        <h2>Client Reconciliation Diagnostic</h2>
+        <p>A structured 3–5 day assessment of a client's last 12 months. You deliver a signed-off gap report. They see real numbers. You bill for expertise, not just software access.</p>
+        <div class="diag-deliverables">
+          <div class="diag-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>GST reconciliation gap report</div>
+          <div class="diag-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>ITC leakage quantification (₹)</div>
+          <div class="diag-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>Vendor compliance risk map</div>
+          <div class="diag-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>Bank reconciliation exceptions</div>
+          <div class="diag-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>Duplicate &amp; revenue leakage list</div>
+          <div class="diag-item"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>Ongoing monitoring ROI estimate</div>
+        </div>
+      </div>
+      <div class="diag-price">
+        <div class="diag-price-val">₹5,000<br/>–₹25,000</div>
+        <div class="diag-price-sub">per client · billed to client<br/>you retain full margin</div>
+        <button class="btn btn-primary" onclick="window.location.href='contact.html'">Talk to Us →</button>
+        <p style="font-size:11px;color:#64748b;margin-top:10px;">You price &amp; bill your client<br/>directly — we supply the platform</p>
+      </div>
+    </div>
+
+    <!-- CA Plans -->
+    <div style="text-align:center;margin:64px 0 32px;">
+      <span class="eyebrow">Step 2 — Practice Subscription</span>
+      <h2 class="h3">Plans for CA Firms</h2>
+      <p class="body-sm" style="max-width:540px;margin:8px auto 0;">One subscription for your practice. Unlimited reconciliation runs within your client allowance. Your clients never interact with MarginPulse directly — you stay the trusted advisor.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- Solo CA -->
+      <article class="price-card" aria-label="Solo CA plan">
+        <div class="price-plan">Solo Practitioner</div>
+        <p style="font-size:11px;color:var(--muted);margin-bottom:12px;">Up to 5 active clients</p>
+        <div class="price-amount"><sup>₹</sup>15,000</div>
+        <div class="price-period">per month · billed annually</div>
+        <p class="price-desc">For independent CAs or small practices managing a focused client book who want to move from manual to real-time reconciliation.</p>
+        <ul class="price-features">
+          <li>Up to 5 client entities</li>
+          <li>Separate dashboard per client</li>
+          <li>Live bank sync per client (AA)</li>
+          <li>GST portal sync — GSTR-2A/2B</li>
+          <li>ITC risk alerts — all clients</li>
+          <li>Client-branded audit trail exports</li>
+          <li>WhatsApp document ingest per client</li>
+          <li>1 CA seat</li>
+          <li class="off">White-label client portal</li>
+          <li class="off">Staff sub-accounts</li>
+          <li class="off">API access</li>
+        </ul>
+        <button class="price-btn secondary" onclick="window.location.href='contact.html'">Get Started</button>
+      </article>
+
+      <!-- CA Firm (popular) -->
+      <article class="price-card popular" aria-label="CA Firm plan — most popular">
+        <div class="popular-badge">Most Popular for Firms</div>
+        <div class="price-plan">CA Firm</div>
+        <p style="font-size:11px;color:var(--muted);margin-bottom:12px;">6–20 active clients</p>
+        <div class="price-amount"><sup>₹</sup>35,000</div>
+        <div class="price-period">per month · billed annually</div>
+        <p class="price-desc">For growing practices where reconciliation is consuming too many hours per client — and you're ready to reclaim that capacity for higher-value advisory work.</p>
+        <ul class="price-features">
+          <li>Up to 20 client entities</li>
+          <li>White-label client portal (your brand)</li>
+          <li>Live bank sync — all clients (AA)</li>
+          <li>GST portal sync — full suite</li>
+          <li>ITC risk &amp; vendor alerts — all clients</li>
+          <li>Monthly client pack — auto-generated</li>
+          <li>Client-facing exception reports</li>
+          <li>5 CA / staff seats</li>
+          <li>Staff sub-account with permissions</li>
+          <li>Priority support + onboarding call</li>
+          <li class="off">API access</li>
+        </ul>
+        <button class="price-btn primary" onclick="window.location.href='contact.html'">Get Started</button>
+      </article>
+
+      <!-- Large Firm -->
+      <article class="price-card" aria-label="Large CA Firm plan">
+        <div class="price-plan">Large Firm / Network</div>
+        <p style="font-size:11px;color:var(--muted);margin-bottom:12px;">20+ clients or multi-branch</p>
+        <div class="price-amount" style="font-size:28px;">Custom</div>
+        <div class="price-period">annual contract</div>
+        <p class="price-desc">For large CA firms, Big 4 affiliates, or multi-city networks needing consolidated oversight, API integration, and custom workflows.</p>
+        <ul class="price-features">
+          <li>Unlimited client entities</li>
+          <li>Full white-label — your domain</li>
+          <li>REST API + webhook access</li>
+          <li>Custom client onboarding workflows</li>
+          <li>Consolidated cross-client dashboard</li>
+          <li>Staff hierarchy &amp; approval flows</li>
+          <li>Regulator-ready export formats</li>
+          <li>Unlimited CA &amp; staff seats</li>
+          <li>Dedicated implementation manager</li>
+          <li>Training for your team included</li>
+          <li>Named support contact + SLA</li>
+        </ul>
+        <button class="price-btn secondary" onclick="window.location.href='contact.html'">Talk to Us</button>
+      </article>
+
+    </div><!-- /pricing-grid -->
+
+    <!-- CA value prop table -->
+    <div style="margin-top:56px;">
+      <h2 class="h3 text-center" style="margin-bottom:8px;">What changes for your practice</h2>
+      <p class="body-sm text-center" style="max-width:480px;margin:0 auto 24px;">The time saved per client is the capacity that funds growth — without hiring.</p>
+      <table class="compare-table" aria-label="Practice impact comparison">
+        <thead>
+          <tr>
+            <th style="width:35%">Area</th>
+            <th>Without MarginPulse</th>
+            <th>With MarginPulse</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bold">Monthly reconciliation per client</td>
+            <td>2–3 days in Excel</td>
+            <td class="check">30–60 mins reviewing exceptions</td>
+          </tr>
+          <tr>
+            <td class="bold">ITC gap detection</td>
+            <td>Discovered at month-end, often unrecoverable</td>
+            <td class="check">Flagged days before the GSTR-2B cutoff</td>
+          </tr>
+          <tr>
+            <td class="bold">Client audit readiness</td>
+            <td>Assembled under pressure before assessment</td>
+            <td class="check">Continuously maintained, exportable anytime</td>
+          </tr>
+          <tr>
+            <td class="bold">Vendor follow-up</td>
+            <td>Manual calls / emails, often after deadline</td>
+            <td class="check">Auto-drafted reminders sent in time</td>
+          </tr>
+          <tr>
+            <td class="bold">Capacity for new clients (10-client firm)</td>
+            <td>Typically capped — no bandwidth</td>
+            <td class="check">+3–5 clients without additional hires</td>
+          </tr>
+          <tr>
+            <td class="bold">Positioning with clients</td>
+            <td>Reactive — filing and compliance</td>
+            <td class="check">Proactive — finding money and preventing risk</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CA FAQ -->
+    <div style="max-width:720px;margin:64px auto 0;">
+      <h2 class="h3 text-center mb-32">CA-Specific Questions</h2>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Can I bill my clients for the platform cost?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Yes — most CA firms pass through the per-client platform cost as part of their reconciliation retainer or package it into an upgraded monthly engagement fee. Several practices we work with have actually increased their overall billing by positioning the platform as "live monitoring" rather than "monthly filing."</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Do my clients see the MarginPulse brand?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">On the CA Firm plan and above, client-facing exports and the client portal carry your firm's branding — not ours. You're the advisor; we're the engine behind the scenes. On the Solo plan, exports include a "Powered by MarginPulse Pro" footer.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What if a client already has an accounting software like Tally or Zoho?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">MarginPulse Pro integrates with Tally, Zoho Books, and others via our data import pipeline. For the CA Firm and Large Firm plans, direct integrations are available. For smaller plans, structured exports from those systems can be uploaded or forwarded via WhatsApp — the platform handles normalization automatically.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Is there a per-client limit on reconciliation runs?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">No — within your client allowance, reconciliation runs are unlimited. The system runs continuously, so there's no concept of a "run limit." You're paying for the number of client entities monitored, not for how often the engine checks them.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div><!-- /track-ca -->
+
+
+<!-- ── Shared CTA ── -->
+<section class="section section-gradient" style="text-align:center;">
+  <div class="container">
+    <h2 class="h2" style="color:#fff;">Not sure which track is right?</h2>
+    <p class="lead" style="color:#94a3b8;max-width:480px;margin:12px auto 32px;">Talk to us for 20 minutes. We'll tell you honestly what makes sense for your size and use case — and what a realistic ROI looks like before you commit to anything.</p>
     <div class="cta-actions">
-      <button class="btn btn-primary btn-lg" onclick="window.location.href='https://marginpulse-02-frontend-web.vercel.app/'">Start for ₹999 — First Month</button>
-      <button class="btn btn-ghost-light btn-lg" onclick="window.location.href='/pages/contact.html'">Talk to Us First</button>
+      <button class="btn btn-primary btn-lg" onclick="window.location.href='contact.html'">Book a 20-Min Call →</button>
+      <button class="btn btn-ghost-light btn-lg" onclick="window.location.href='../index.html'">See How It Works</button>
     </div>
   </div>
 </section>
-</main>
 
+</main>
 <div id="footer-root"></div>
-<script src="/js/components.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/pricing.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/pricing.js"></script>
+<script>
+function switchTab(track) {
+  document.querySelectorAll('.ptab').forEach(t => {
+    t.classList.toggle('active', t.id === 'tab-' + track);
+    t.setAttribute('aria-selected', t.id === 'tab-' + track);
+  });
+  document.querySelectorAll('.pricing-track').forEach(t => {
+    t.classList.toggle('active', t.id === 'track-' + track);
+  });
+  window.scrollTo({ top: document.querySelector('.page-hero').offsetTop - 80, behavior: 'smooth' });
+}
+</script>
 </body>
 </html>
