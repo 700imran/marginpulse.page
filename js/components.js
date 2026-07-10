@@ -32,7 +32,7 @@ const NAV_HTML = `
       <div class="nav-logo-mark" aria-hidden="true">M</div>
       <div>
         <div class="nav-logo-name">MarginPulse <span>Pro</span></div>
-        <span class="nav-logo-tagline">GST Reconciliation Engine</span>
+        <span class="nav-logo-tagline">Financial Risk Intelligence</span>
       </div>
     </a>
 
@@ -78,7 +78,7 @@ const FOOTER_HTML = `
           <div class="nav-logo-mark" aria-hidden="true">M</div>
           <span>MarginPulse <em>Pro</em></span>
         </div>
-        <p>Real-time Bank ↔ Invoice ↔ GST reconciliation for Indian mid-size businesses. Live API connections. No spreadsheets. Money recovered while there's still time.</p>
+        <p>Financial risk intelligence for Indian finance teams. We turn bank, invoice and GST data into prioritized, rupee-quantified decisions — live. No spreadsheets. No surprises at month-end.</p>
         <div class="footer-social" aria-label="Social media links">
           <a href="#" aria-label="Twitter/X">𝕏</a>
           <a href="#" aria-label="LinkedIn">in</a>
