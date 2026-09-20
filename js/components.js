@@ -25,11 +25,27 @@ const SITE_BASE = (() => {
 
 const B = SITE_BASE; /* shorthand */
 
+/* Official brand icon (bars + upward arrow), teal gradient —
+   matches the app's sidebar mark exactly. */
+const MP_ICON_SVG = `<svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mpIconGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#aee9da"/>
+      <stop offset="100%" stop-color="#18c496"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="56" width="17" height="30" rx="3" fill="url(#mpIconGrad)"/>
+  <rect x="32" y="40" width="17" height="46" rx="3" fill="url(#mpIconGrad)"/>
+  <rect x="56" y="24" width="17" height="62" rx="3" fill="url(#mpIconGrad)"/>
+  <path d="M5 64 L27 36 L42 52 L66 14" fill="none" stroke="url(#mpIconGrad)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M66 14 L86 6 L79 26" fill="none" stroke="url(#mpIconGrad)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+
 const NAV_HTML = `
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="${B}index.html" class="nav-logo" aria-label="MarginPulse Pro home">
-      <div class="nav-logo-mark" aria-hidden="true">M</div>
+      <div class="nav-logo-mark" aria-hidden="true">${MP_ICON_SVG}</div>
       <div>
         <div class="nav-logo-name">MarginPulse <span>Pro</span></div>
         <span class="nav-logo-tagline">Financial Risk Intelligence</span>
@@ -75,7 +91,7 @@ const FOOTER_HTML = `
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-brand-name">
-          <div class="nav-logo-mark" aria-hidden="true">M</div>
+          <div class="nav-logo-mark" aria-hidden="true">${MP_ICON_SVG}</div>
           <span>MarginPulse <em>Pro</em></span>
         </div>
         <p>Financial risk intelligence for Indian finance teams. We turn bank, invoice and GST data into prioritized, rupee-quantified decisions — live. No spreadsheets. No surprises at month-en...</p>
