@@ -1,10 +1,10 @@
 /* ═══════════════════════════════════════════════
    MarginPulse Pro — main.js
    Nav · Cookie · Scroll · Shared utils
-   App URL: https://marginpulse-app.vercel.app/
+   App URL: https://app.marginpulse.in/
    ═══════════════════════════════════════════════ */
 
-const APP_URL = "https://marginpulse-app.vercel.app/";
+const APP_URL = "https://app.marginpulse.in/";
 
 /* ── Launch app (all CTA + login buttons point here) ── */
 function launchApp(path = "") {

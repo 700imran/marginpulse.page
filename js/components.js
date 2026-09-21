@@ -3,7 +3,7 @@
    into every page. Single source of truth.
    ═══════════════════════════════════════════════ */
 
-const APP_URL = "https://marginpulse-app.vercel.app/";
+const APP_URL = "https://app.marginpulse.in/";
 
 /* ── Compute relative base path from this script's own depth ──
    Works on any host: root domain, subpath (GitHub Pages project site),
