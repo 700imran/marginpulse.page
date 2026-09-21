@@ -63,7 +63,7 @@ const NAV_HTML = `
 
     <div class="nav-actions">
       <button class="nav-signin" onclick="window.location.href='${APP_URL}'" aria-label="Sign in to dashboard">Sign In</button>
-      <button class="nav-waitlist" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd5Dgw_Pe2WLRNGF2ES4j2o_8q6pYl3w8yV2QhUaZn5yqZr2g/viewform?usp=publish-editor','_blank')" aria-lab..." aria-label="Join waitlist">Join Waitlist</button>
+      <button class="nav-waitlist" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd5Dgw_Pe2WLRNGF2ES4j2o_8q6pYl3w8yV2QhUaZn5yqZr2g/viewform?usp=publish-editor','_blank')" aria-label="Join waitlist">Join Waitlist</button>
       <button class="nav-cta"    onclick="window.location.href='${APP_URL}'" aria-label="Request early access">Request Early Access →</button>
     </div>
 
@@ -81,7 +81,7 @@ const NAV_HTML = `
   <a href="${B}blog/index.html"     class="mobile-nav-link">Blog & Resources</a>
   <a href="${B}pages/contact.html"  class="mobile-nav-link">Contact</a>
   <div class="mobile-divider"></div>
-  <button class="mobile-waitlist" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd5Dgw_Pe2WLRNGF2ES4j2o_8q6pYl3w8yV2QhUaZn5yqZr2g/viewform?usp=publish-editor','_blank')">Join Wait..." aria-label="Join waitlist">Join Waitlist</button>
+  <button class="mobile-waitlist" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd5Dgw_Pe2WLRNGF2ES4j2o_8q6pYl3w8yV2QhUaZn5yqZr2g/viewform?usp=publish-editor','_blank')" aria-label="Join waitlist">Join Waitlist</button>
   <button class="mobile-cta" onclick="window.location.href='${APP_URL}'">Sign In to Dashboard →</button>
 </div>`;
 
