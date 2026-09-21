@@ -64,7 +64,7 @@ const NAV_HTML = `
     <div class="nav-actions">
       <button class="nav-signin" onclick="window.location.href='${APP_URL}'" aria-label="Sign in to dashboard">Sign In</button>
       <button class="nav-waitlist" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd5Dgw_Pe2WLRNGF2ES4j2o_8q6pYl3w8yV2QhUaZn5yqZr2g/viewform?usp=publish-editor','_blank')" aria-lab..." aria-label="Join waitlist">Join Waitlist</button>
-      <button class="nav-cta"    onclick="window.location.href='${APP_URL}'" aria-label="Start free trial">Start Free →</button>
+      <button class="nav-cta"    onclick="window.location.href='${APP_URL}'" aria-label="Request early access">Request Early Access →</button>
     </div>
 
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
