@@ -1,0 +1,22 @@
+# MarginPulse Pro
+
+> Financial risk intelligence workflow for Indian finance teams and CA firms. Reconciles bank, invoice and GST data, surfaces exceptions, and ranks them by potential rupee impact. Currently in controlled beta / commercial validation.
+
+MarginPulse is not a substitute for a CA, tax professional, or auditor, and does not guarantee ITC recovery, tax savings, or any financial outcome. It identifies and quantifies potential issues for a professional to investigate.
+
+## Product
+- [Homepage](https://marginpulse.in/): positioning, how it works, capabilities, roadmap
+- [Pricing](https://marginpulse.in/pages/pricing.html): current plans
+- [Security](https://marginpulse.in/pages/security.html): data handling and security practices
+- [About](https://marginpulse.in/pages/about.html): company background
+
+## App
+- [App sign-in / early access](https://app.marginpulse.in/)
+
+## Resources
+- [Blog](https://marginpulse.in/blog/index.html): GST, reconciliation, and ITC-focused guides
+
+## Legal
+- [Privacy Policy](https://marginpulse.in/pages/privacy.html)
+- [Terms of Service](https://marginpulse.in/pages/terms.html)
+- [Refund Policy](https://marginpulse.in/pages/refund.html)

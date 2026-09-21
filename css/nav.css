@@ -18,7 +18,7 @@
   width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .nav-logo-name { font-weight: 800; font-size: 15px; color: var(--slate); }
-.nav-logo-name span { color: var(--teal); }
+.nav-logo-name span { color: var(--teal-dark); }
 .nav-logo-tagline { font-size: 10px; color: var(--muted); display: block; line-height: 1; margin-top: 1px; }
 
 .nav-links { display: flex; align-items: center; gap: 2px; }
@@ -76,7 +76,7 @@
 .footer-brand-name span { font-size: 15px; font-weight: 800; color: #fff; }
 .footer-brand-name span em { font-style: normal; color: var(--teal-mid); }
 .footer-brand p { font-size: 13px; color: #64748b; line-height: 1.7; max-width: 280px; }
-.footer-col h4 { font-size: 11px; font-weight: 700; color: #fff;
+.footer-col h3 { font-size: 11px; font-weight: 700; color: #fff;
                  text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; }
 .footer-col a { display: block; font-size: 13px; color: #64748b; margin-bottom: 10px;
                 cursor: pointer; transition: color var(--transition); }

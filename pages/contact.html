@@ -47,17 +47,17 @@
       </div>
       <div class="contact-form-wrap">
         <form id="contact-form">
-          <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Rahul Khanna" required/></div>
-          <div class="form-group"><label class="form-label">Business Email</label><input class="form-input" type="email" placeholder="rahul@yourcompany.in" required/></div>
-          <div class="form-group"><label class="form-label">Company Name</label><input class="form-input" type="text" placeholder="Acme Traders Pvt Ltd"/></div>
+          <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" id="cf-name" type="text" placeholder="Rahul Khanna" required/></div>
+          <div class="form-group"><label class="form-label">Business Email</label><input class="form-input" id="cf-email" type="email" placeholder="rahul@yourcompany.in" required/></div>
+          <div class="form-group"><label class="form-label">Company Name</label><input class="form-input" id="cf-company" type="text" placeholder="Acme Traders Pvt Ltd"/></div>
           <div class="form-group">
             <label class="form-label">I'm enquiring about</label>
-            <select class="form-select">
+            <select class="form-select" id="cf-topic">
               <option>Pricing &amp; Plans</option><option>Product Demo</option><option>Security &amp; Compliance</option>
               <option>Technical Integration</option><option>Partnership</option><option>Something else</option>
             </select>
           </div>
-          <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Tell us about your business and what you're trying to solve..." required></textarea></div>
+          <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" id="cf-message" placeholder="Tell us about your business and what you're trying to solve..." required></textarea></div>
           <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message →</button>
           <div id="form-success-msg" class="form-success hidden">✓ Message sent! We'll get back to you within 4 hours.</div>
         </form>

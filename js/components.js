@@ -102,20 +102,20 @@ const FOOTER_HTML = `
         </div>
       </div>
       <div class="footer-col">
-        <h4>Product</h4>
+        <h3>Product</h3>
         <a href="${B}index.html">How It Works</a>
         <a href="${B}pages/pricing.html">Pricing</a>
         <a href="${B}pages/security.html">Security</a>
         <a href="${B}blog/index.html">Resources</a>
       </div>
       <div class="footer-col">
-        <h4>Company</h4>
+        <h3>Company</h3>
         <a href="${B}pages/about.html">About Us</a>
         <a href="${B}pages/contact.html">Contact</a>
         <a href="${B}blog/index.html">Blog</a>
       </div>
       <div class="footer-col">
-        <h4>Legal</h4>
+        <h3>Legal</h3>
         <a href="${B}pages/privacy.html">Privacy Policy</a>
         <a href="${B}pages/terms.html">Terms of Service</a>
         <a href="${B}pages/cookies.html">Cookie Policy</a>
