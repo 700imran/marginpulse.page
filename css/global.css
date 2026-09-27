@@ -57,7 +57,7 @@ input, textarea, select { font-family: inherit; }
 .container-sm { max-width:  760px; margin: 0 auto; padding: 0 5%; }
 
 /* ── Typography ── */
-.eyebrow { display: block; font-size: 11px; font-weight: 700; letter-spacing: .1em;
+.eyebrow { display: block; font-size: 12px; font-weight: 700; letter-spacing: .1em;
            text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
 .display { font-size: clamp(36px,5vw,68px); font-weight: 900; letter-spacing: -.03em;
            line-height: 1.05; color: var(--slate); }
@@ -106,6 +106,7 @@ input, textarea, select { font-family: inherit; }
 /* ── Cards ── */
 .card { background: var(--white); border: 1px solid var(--border);
         border-radius: var(--radius-lg); padding: 28px; }
+.card h3 { min-height: 40px; display: flex; align-items: flex-start; }
 .card-hover { transition: box-shadow var(--transition), transform var(--transition); }
 .card-hover:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
 
@@ -165,13 +166,12 @@ input, textarea, select { font-family: inherit; }
 .legal-toc a:hover { text-decoration: underline; }
 
 /* ── Cookie Banner ── */
-#cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
-  background: var(--slate); padding: 16px 5%;
-  display: flex; align-items: center; justify-content: space-between; gap: 20px;
-  border-top: 1px solid rgba(255,255,255,.07); flex-wrap: wrap;
-  box-shadow: 0 -4px 24px rgba(15,23,42,.35); }
+#cookie-banner { position: fixed; bottom: 20px; left: 20px; max-width: 360px; z-index: 9999;
+  background: var(--slate); padding: 18px 20px;
+  display: flex; flex-direction: column; gap: 14px;
+  border-radius: var(--radius-lg); box-shadow: 0 12px 40px rgba(15,23,42,.35); }
 #cookie-banner.hidden { display: none; }
-.cookie-text { font-size: 13px; color: #cbd5e1; flex: 1; min-width: 240px; line-height: 1.55; }
+.cookie-text { font-size: 13px; color: #cbd5e1; line-height: 1.55; }
 .cookie-text a { color: var(--teal-mid); text-decoration: underline; }
 .cookie-actions { display: flex; gap: 10px; }
 .cookie-accept { padding: 9px 20px; background: var(--teal); color: #fff;
@@ -180,6 +180,9 @@ input, textarea, select { font-family: inherit; }
 .cookie-reject { padding: 9px 20px; background: rgba(255,255,255,.08); color: #cbd5e1;
                  font-size: 13px; font-weight: 600; border: 1px solid rgba(255,255,255,.12);
                  border-radius: var(--radius); cursor: pointer; }
+@media (max-width: 480px) {
+  #cookie-banner { left: 12px; right: 12px; bottom: 12px; max-width: none; }
+}
 
 /* ── Scroll to top ── */
 #scroll-top { position: fixed; bottom: 80px; right: 24px; z-index: 500;

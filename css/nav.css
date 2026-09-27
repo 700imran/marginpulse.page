@@ -24,27 +24,25 @@
 .nav-links { display: flex; align-items: center; gap: 2px; }
 .nav-link {
   padding: 7px 13px; font-size: 13px; font-weight: 500; color: var(--muted);
-  background: none; border: none; cursor: pointer; border-radius: 6px;
+  background: none; border: none; cursor: pointer; border-radius: 8px;
   transition: color var(--transition), background var(--transition);
 }
 .nav-link:hover { color: var(--text); background: var(--bg); }
 .nav-link.active { color: var(--slate); font-weight: 600; }
 
-.nav-actions { display: flex; align-items: center; gap: 10px; }
-.nav-signin {
-  padding: 8px 16px; font-size: 13px; font-weight: 600;
-  background: none; color: var(--text); border: 1.5px solid var(--border);
-  border-radius: var(--radius); cursor: pointer;
-  transition: border-color var(--transition), color var(--transition);
+.nav-actions { display: flex; align-items: center; gap: 20px; }
+.nav-signin-link {
+  font-size: 13px; font-weight: 600; color: var(--text); cursor: pointer;
+  text-decoration: none; transition: color var(--transition);
 }
-.nav-signin:hover { border-color: var(--teal); color: var(--teal); }
+.nav-signin-link:hover { color: var(--teal-dark); }
 .nav-cta {
   padding: 9px 18px; font-size: 13px; font-weight: 700;
-  background: var(--slate); color: #fff; border: none;
+  background: var(--teal); color: #fff; border: none;
   border-radius: var(--radius); cursor: pointer;
   transition: background var(--transition);
 }
-.nav-cta:hover { background: var(--slate-hover); }
+.nav-cta:hover { background: var(--teal-dark); }
 
 /* Mobile hamburger */
 .nav-hamburger { display: none; background: none; border: none;
@@ -88,7 +86,7 @@
 .footer-badge { font-size: 10px; padding: 4px 10px; border-radius: 4px;
                 background: #1e293b; color: #64748b; font-weight: 600; }
 .footer-social { display: flex; gap: 12px; margin-top: 16px; }
-.footer-social a { width: 32px; height: 32px; background: #1e293b; border-radius: 6px;
+.footer-social a { width: 32px; height: 32px; background: #1e293b; border-radius: 8px;
                    display: flex; align-items: center; justify-content: center;
                    font-size: 14px; transition: background var(--transition); }
 .footer-social a:hover { background: var(--teal-dark); }
@@ -101,19 +99,8 @@
   .footer-bottom { flex-direction: column; text-align: center; }
 }
 
-/* ── Waitlist button ── */
-.nav-waitlist {
-  padding: 8px 16px; font-size: 13px; font-weight: 700;
-  background: var(--teal-light); color: var(--teal-dark);
-  border: 1.5px solid var(--teal-border); border-radius: var(--radius);
-  cursor: pointer; transition: background var(--transition), border-color var(--transition);
-  white-space: nowrap;
-}
-.nav-waitlist:hover { background: var(--teal-border); border-color: var(--teal); }
-
-.mobile-waitlist {
-  padding: 13px 16px; font-size: 15px; font-weight: 700;
-  background: var(--teal-light); color: var(--teal-dark);
-  border: 1.5px solid var(--teal-border); border-radius: var(--radius);
-  cursor: pointer; width: 100%; margin-bottom: 8px; text-align: center;
+/* ── Mobile menu actions ── */
+.mobile-signin-link {
+  display: block; text-align: center; padding: 10px; font-size: 14px; font-weight: 600;
+  color: var(--text); text-decoration: none;
 }
