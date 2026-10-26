@@ -9,6 +9,61 @@
    active-nav highlighting all failed) on every page, sitewide.
    ═══════════════════════════════════════════════ */
 
+/* ── Clean URL normalization for canonical + internal links ── */
+function normalizeSiteUrl(rawUrl) {
+  if (!rawUrl || rawUrl.startsWith('#')) return rawUrl;
+  if (/^(mailto:|tel:|javascript:|data:)/i.test(rawUrl)) return rawUrl;
+
+  try {
+    const resolved = new URL(rawUrl, window.location.href);
+    const allowedOrigins = [
+      window.location.origin,
+      'https://marginpulse.in',
+      'http://marginpulse.in',
+      'https://www.marginpulse.in',
+      'http://www.marginpulse.in'
+    ];
+
+    if (!allowedOrigins.includes(resolved.origin)) return rawUrl;
+
+    let pathname = resolved.pathname.replace(/index\.html$/i, '').replace(/\.html$/i, '');
+    pathname = pathname.replace(/\/+$/, '');
+    if (!pathname.startsWith('/')) pathname = '/' + pathname;
+    if (pathname === '') pathname = '/';
+
+    return `${pathname}${resolved.search}${resolved.hash}`;
+  } catch (error) {
+    return rawUrl;
+  }
+}
+
+function normalizeCanonicalAndInternalUrls() {
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) {
+    const canonicalHref = canonical.getAttribute('href');
+    if (canonicalHref) {
+      const normalized = normalizeSiteUrl(canonicalHref);
+      canonical.setAttribute('href', `https://marginpulse.in${normalized}`);
+    }
+  }
+
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) {
+    const ogContent = ogUrl.getAttribute('content');
+    if (ogContent) {
+      const normalized = normalizeSiteUrl(ogContent);
+      ogUrl.setAttribute('content', `https://marginpulse.in${normalized}`);
+    }
+  }
+
+  document.querySelectorAll('a[href], area[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    const normalized = normalizeSiteUrl(href);
+    if (normalized !== href) link.setAttribute('href', normalized);
+  });
+}
+
 /* ── Launch app (all CTA + login buttons point here) ── */
 function launchApp(path = "") {
   window.location.href = APP_URL + path;
@@ -16,10 +71,10 @@ function launchApp(path = "") {
 
 /* ── Mark current nav link active ── */
 function setActiveNav() {
-  const path = window.location.pathname.split("/").pop() || "index.html";
+  const path = window.location.pathname.split("/").pop() || "index";
   document.querySelectorAll(".nav-link").forEach(link => {
     const href = link.getAttribute("data-href") || "";
-    link.classList.toggle("active", href === path);
+    link.classList.toggle("active", href === path || (href === "index" && path === ""));
   });
 }
 
@@ -116,6 +171,7 @@ function initContactForm() {
 
 /* ── Boot ── */
 document.addEventListener("DOMContentLoaded", () => {
+  normalizeCanonicalAndInternalUrls();
   setActiveNav();
   initMobileMenu();
   initCookies();
