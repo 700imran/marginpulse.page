@@ -44,7 +44,7 @@ const MP_ICON_SVG = `<svg viewBox="0 0 100 100" width="100%" height="100%" xmlns
 const NAV_HTML = `
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="${B}index.html" class="nav-logo" aria-label="MarginPulse Pro home">
+    <a href="${B}index" class="nav-logo" aria-label="MarginPulse Pro home">
       <div class="nav-logo-mark" aria-hidden="true">${MP_ICON_SVG}</div>
       <div>
         <div class="nav-logo-name">MarginPulse <span>Pro</span></div>
@@ -53,12 +53,12 @@ const NAV_HTML = `
     </a>
 
     <div class="nav-links" role="menubar">
-      <a href="${B}index.html"          class="nav-link" data-href="index.html"   role="menuitem">Home</a>
-      <a href="${B}pages/pricing.html"  class="nav-link" data-href="pricing.html"  role="menuitem">Pricing</a>
-      <a href="${B}pages/about.html"    class="nav-link" data-href="about.html"    role="menuitem">About</a>
-      <a href="${B}pages/security.html" class="nav-link" data-href="security.html" role="menuitem">Security</a>
-      <a href="${B}blog/index.html"     class="nav-link" data-href="index.html"    role="menuitem">Blog</a>
-      <a href="${B}pages/contact.html"  class="nav-link" data-href="contact.html"  role="menuitem">Contact</a>
+      <a href="${B}index"          class="nav-link" data-href="index"      role="menuitem">Home</a>
+      <a href="${B}pages/pricing"  class="nav-link" data-href="pricing"   role="menuitem">Pricing</a>
+      <a href="${B}pages/about"    class="nav-link" data-href="about"     role="menuitem">About</a>
+      <a href="${B}pages/security" class="nav-link" data-href="security"  role="menuitem">Security</a>
+      <a href="${B}blog"           class="nav-link" data-href="blog"      role="menuitem">Blog</a>
+      <a href="${B}pages/contact"  class="nav-link" data-href="contact"   role="menuitem">Contact</a>
     </div>
 
     <div class="nav-actions">
@@ -73,12 +73,12 @@ const NAV_HTML = `
 </nav>
 
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="${B}index.html"          class="mobile-nav-link">Home</a>
-  <a href="${B}pages/pricing.html"  class="mobile-nav-link">Pricing</a>
-  <a href="${B}pages/about.html"    class="mobile-nav-link">About</a>
-  <a href="${B}pages/security.html" class="mobile-nav-link">Security</a>
-  <a href="${B}blog/index.html"     class="mobile-nav-link">Blog & Resources</a>
-  <a href="${B}pages/contact.html"  class="mobile-nav-link">Contact</a>
+  <a href="${B}index"          class="mobile-nav-link">Home</a>
+  <a href="${B}pages/pricing"  class="mobile-nav-link">Pricing</a>
+  <a href="${B}pages/about"    class="mobile-nav-link">About</a>
+  <a href="${B}pages/security" class="mobile-nav-link">Security</a>
+  <a href="${B}blog"           class="mobile-nav-link">Blog & Resources</a>
+  <a href="${B}pages/contact"  class="mobile-nav-link">Contact</a>
   <div class="mobile-divider"></div>
   <button class="mobile-cta" onclick="window.location.href='${APP_URL}'">Request Early Access →</button>
   <a href="#" class="mobile-signin-link" onclick="window.location.href='${APP_URL}'">Sign In to Dashboard</a>
@@ -93,7 +93,7 @@ const FOOTER_HTML = `
           <div class="nav-logo-mark" aria-hidden="true">${MP_ICON_SVG}</div>
           <span>MarginPulse <em>Pro</em></span>
         </div>
-        <p>Financial risk intelligence for Indian finance teams. We turn bank, invoice and GST data into prioritized, rupee-quantified decisions — live. No spreadsheets. No surprises at month-en...</p>
+        <p>Financial risk intelligence for Indian finance teams. We turn bank, invoice and GST data into prioritized, rupee-quantified decisions — live. No spreadsheets. No surprises at month-end.</p>
         <div class="footer-social" aria-label="Social media links">
           <a href="#" aria-label="Twitter/X">𝕏</a>
           <a href="#" aria-label="LinkedIn">in</a>
@@ -102,23 +102,23 @@ const FOOTER_HTML = `
       </div>
       <div class="footer-col">
         <h3>Product</h3>
-        <a href="${B}index.html">How It Works</a>
-        <a href="${B}pages/pricing.html">Pricing</a>
-        <a href="${B}pages/security.html">Security</a>
-        <a href="${B}blog/index.html">Resources</a>
+        <a href="${B}index">How It Works</a>
+        <a href="${B}pages/pricing">Pricing</a>
+        <a href="${B}pages/security">Security</a>
+        <a href="${B}blog">Resources</a>
       </div>
       <div class="footer-col">
         <h3>Company</h3>
-        <a href="${B}pages/about.html">About Us</a>
-        <a href="${B}pages/contact.html">Contact</a>
-        <a href="${B}blog/index.html">Blog</a>
+        <a href="${B}pages/about">About Us</a>
+        <a href="${B}pages/contact">Contact</a>
+        <a href="${B}blog">Blog</a>
       </div>
       <div class="footer-col">
         <h3>Legal</h3>
-        <a href="${B}pages/privacy.html">Privacy Policy</a>
-        <a href="${B}pages/terms.html">Terms of Service</a>
-        <a href="${B}pages/cookies.html">Cookie Policy</a>
-        <a href="${B}pages/refund.html">Refund Policy</a>
+        <a href="${B}pages/privacy">Privacy Policy</a>
+        <a href="${B}pages/terms">Terms of Service</a>
+        <a href="${B}pages/cookies">Cookie Policy</a>
+        <a href="${B}pages/refund">Refund Policy</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -135,7 +135,7 @@ const FOOTER_HTML = `
 <div id="cookie-banner" role="region" aria-label="Cookie consent">
   <div class="cookie-text">
     We use essential cookies for authentication and, with your consent, analytics cookies to improve our site.
-    See our <a href="${B}pages/cookies.html">Cookie Policy</a> and <a href="${B}pages/privacy.html">Privacy Policy</a>.
+    See our <a href="${B}pages/cookies">Cookie Policy</a> and <a href="${B}pages/privacy">Privacy Policy</a>.
   </div>
   <div class="cookie-actions">
     <button class="cookie-reject" id="cookie-reject">Essential Only</button>
